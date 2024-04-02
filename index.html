@@ -2,59 +2,75 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rest API - Zhirrr</title>
   <link href="style.css" rel="stylesheet">
 </head>
 
-<body id="page-top">
-  <div id="wrapper">
-    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon">
-        	<img src="img/logo/logo2.png">
-        </div>
-        <div class="sidebar-brand-text mx-3">Zhirrr's API</div>
-      </a>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-code"></i>
-          <span>Beranda</span></a>
-      </li>
-      <!-- Menu lainnya disini -->
-    </ul>
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="content">
-        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-          <!-- Topbar Content -->
-        </nav>
-        <div class="container-fluid" id="container-wrapper">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Beranda</h1>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Beranda</li>
-            </ol>
-          </div>
-          <!-- Content lainnya disini -->
-        </div>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="img/logo/logo2.png" alt="Logo">
+        <div class="sidebar-brand-text">Zhirrr's API</div>
       </div>
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; 2021 - Developed By
-              <b><a href="https://github.com/Zhirrr" target="_blank">Zhirrr</a></b>
-            </span>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-fw fa-code"></i>
+            <span>Beranda</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link collapsed" data-toggle="collapse" data-target="#collapseSocialMedia">
+            <i class="fas fa-fw fa-arrow-down"></i>
+            <span>Social Media API</span>
+          </a>
+          <div id="collapseSocialMedia" class="collapse">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#" class="nav-link">Tiktok Downloader</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Tiktok Stalk</a>
+              </li>
+            </ul>
           </div>
+        </li>
+        <!-- Menus lainnya disini -->
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="container">
+          <img src="img/logo/logo.png" alt="Logo">
+          <nav class="topbar-nav">
+            <!-- Menu topbar disini -->
+          </nav>
         </div>
-      </footer>
-    </div>
+      </header>
+
+      <!-- Isi konten disini -->
+      <section class="main-content">
+        <h1>Beranda</h1>
+        <!-- Konten lainnya -->
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="sticky-footer">
+      <div class="container">
+        <p>&copy; 2024 - Developed By <a href="https://github.com/Zhirrr" target="_blank">Zhirrr</a></p>
+      </div>
+    </footer>
   </div>
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 
 </html>
