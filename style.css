@@ -1,9 +1,28 @@
 /* style.css */
 
-/* Font dari Google Fonts */
+/* Import font dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-/* Style untuk sidebar */
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Sidebar styles */
 .sidebar {
   position: fixed;
   top: 0;
@@ -11,52 +30,54 @@
   width: 250px;
   height: 100vh;
   background-color: #ffffff;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  transition: width 0.3s ease;
 }
 
 .sidebar-brand {
   padding: 1rem 0;
   text-align: center;
-  background-color: #f8f9fc;
+}
+
+.sidebar-brand img {
+  width: 80px;
 }
 
 .sidebar-brand-text {
   font-size: 1.5rem;
-  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #333333;
+  margin-top: 10px;
 }
 
 .nav-item {
-  margin-bottom: 0.5rem;
+  list-style: none;
 }
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   color: #333333;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #f8f9fc;
+  background-color: #f0f0f0;
 }
 
 .nav-link .fa-fw {
-  margin-right: 0.5rem;
+  margin-right: 10px;
 }
 
-/* Style untuk menu yang bisa di-collapse */
+/* Menu yang bisa di-collapse */
 .collapse-item {
   padding-left: 2rem;
-  font-family: 'Roboto', sans-serif;
+  color: #666666;
 }
 
-.collapse-item:hover {
-  background-color: #f8f9fc;
-}
-
-/* Style untuk tanda panah di menu yang bisa di-collapse */
+/* Tanda panah di menu yang bisa di-collapse */
 .fa-arrow-down {
   transition: transform 0.3s ease;
 }
@@ -65,17 +86,24 @@
   transform: rotate(-90deg);
 }
 
-/* Style untuk topbar */
+/* Topbar styles */
 .topbar {
   background-color: #ffffff;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
 }
 
-.topbar .navbar-nav {
-  margin-left: auto;
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Style untuk footer */
+.topbar-brand img {
+  width: 40px;
+}
+
+/* Footer styles */
 .sticky-footer {
   position: fixed;
   bottom: 0;
