@@ -1,76 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rest API - Zhirrr</title>
-  <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Anime</title>
+    <style>
+        /* Gaya untuk daftar anime */
+        .anime-list {
+            list-style: none;
+            padding: 0;
+        }
+        .anime-item {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .anime-item:hover {
+            background-color: #f5f5f5;
+        }
+        .anime-details {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <img src="img/logo/logo2.png" alt="Logo">
-        <div class="sidebar-brand-text">Zhirrr's API</div>
-      </div>
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="fas fa-fw fa-code"></i>
-            <span>Beranda</span>
-          </a>
+    <h1>Daftar Anime</h1>
+    <ul class="anime-list">
+        <li class="anime-item">
+            Naruto
+            <div class="anime-details">
+                Genre: Action, Adventure
+                Episodes: 220
+            </div>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link collapsed" data-toggle="collapse" data-target="#collapseSocialMedia">
-            <i class="fas fa-fw fa-arrow-down"></i>
-            <span>Social Media API</span>
-          </a>
-          <div id="collapseSocialMedia" class="collapse">
-            <ul class="nav">
-              <li class="nav-item">
-                <a href="#" class="nav-link">Tiktok Downloader</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Tiktok Stalk</a>
-              </li>
-            </ul>
-          </div>
+        <li class="anime-item">
+            Attack on Titan
+            <div class="anime-details">
+                Genre: Action, Drama, Fantasy
+                Episodes: 75
+            </div>
         </li>
-        <!-- Menus lainnya disini -->
-      </ul>
-    </aside>
+        <!-- Tambahkan lebih banyak item anime di sini -->
+    </ul>
 
-    <!-- Content -->
-    <main class="content">
-      <!-- Topbar -->
-      <header class="topbar">
-        <div class="container">
-          <img src="img/logo/logo.png" alt="Logo">
-          <nav class="topbar-nav">
-            <!-- Menu topbar disini -->
-          </nav>
-        </div>
-      </header>
-
-      <!-- Isi konten disini -->
-      <section class="main-content">
-        <h1>Beranda</h1>
-        <!-- Konten lainnya -->
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="sticky-footer">
-      <div class="container">
-        <p>&copy; 2024 - Developed By <a href="https://github.com/Zhirrr" target="_blank">Zhirrr</a></p>
-      </div>
-    </footer>
-  </div>
-
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Tambahkan event listener untuk membuka/tutup detail anime
+        const animeItems = document.querySelectorAll('.anime-item');
+        animeItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const details = item.querySelector('.anime-details');
+                details.style.display = details.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
-
 </html>
