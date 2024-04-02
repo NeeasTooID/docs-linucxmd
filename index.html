@@ -19,18 +19,41 @@
             color: #333;
         }
 
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #ddd;
+            margin-right: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tab.active {
+            background-color: #bbb;
+        }
+
         .anime-list {
             list-style: none;
             padding: 0;
-            margin: 20px auto;
+            margin: 0 auto;
             max-width: 600px;
         }
 
         .anime-item {
+            display: none;
             cursor: pointer;
             padding: 20px;
             border-bottom: 1px solid #ddd;
             transition: background-color 0.3s ease;
+        }
+
+        .anime-item.active {
+            display: block;
         }
 
         .anime-item:hover {
@@ -38,39 +61,31 @@
         }
 
         .anime-details {
-            display: none;
             padding: 10px;
             background-color: #f9f9f9;
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 0 0 5px 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .anime-item.open .anime-details {
-            display: block;
-        }
-
-        .category {
-            font-weight: bold;
-            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
     <h1>Daftar Anime</h1>
+    <div class="tabs">
+        <div class="tab active" data-category="shonen">Shonen</div>
+        <div class="tab" data-category="drama">Drama</div>
+        <!-- Tambahkan tab lainnya sesuai kategori -->
+    </div>
     <ul class="anime-list">
-        <li class="anime-item">
+        <li class="anime-item shonen">
             Naruto
             <div class="anime-details">
-                <div class="category">Shonen</div>
                 Genre: Action, Adventure <br>
                 Episodes: 220
             </div>
         </li>
-        <li class="anime-item">
+        <li class="anime-item drama">
             Attack on Titan
             <div class="anime-details">
-                <div class="category">Shonen</div>
                 Genre: Action, Drama, Fantasy <br>
                 Episodes: 75
             </div>
@@ -79,19 +94,24 @@
     </ul>
 
     <script>
-        // Tambahkan event listener untuk membuka/tutup detail anime
+        const tabs = document.querySelectorAll('.tab');
         const animeItems = document.querySelectorAll('.anime-item');
-        animeItems.forEach(item => {
-            item.addEventListener('click', () => {
-                animeItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('open');
-                        otherItem.querySelector('.anime-details').style.display = 'none';
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+
+                // Menampilkan tab yang aktif
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Menampilkan item anime yang sesuai dengan kategori
+                animeItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.classList.contains(category)) {
+                        item.classList.add('active');
                     }
                 });
-                item.classList.toggle('open');
-                const details = item.querySelector('.anime-details');
-                details.style.display = details.style.display === 'block' ? 'none' : 'block';
             });
         });
     </script>
