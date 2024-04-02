@@ -5,23 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Anime</title>
     <style>
-        /* Gaya untuk daftar anime */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
         .anime-list {
             list-style: none;
             padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
         }
+
         .anime-item {
             cursor: pointer;
-            padding: 10px;
+            padding: 20px;
             border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
         }
+
         .anime-item:hover {
             background-color: #f5f5f5;
         }
+
         .anime-details {
             display: none;
             padding: 10px;
             background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .anime-item.open .anime-details {
+            display: block;
         }
     </style>
 </head>
@@ -31,14 +57,14 @@
         <li class="anime-item">
             Naruto
             <div class="anime-details">
-                Genre: Action, Adventure
+                Genre: Action, Adventure <br>
                 Episodes: 220
             </div>
         </li>
         <li class="anime-item">
             Attack on Titan
             <div class="anime-details">
-                Genre: Action, Drama, Fantasy
+                Genre: Action, Drama, Fantasy <br>
                 Episodes: 75
             </div>
         </li>
@@ -50,6 +76,13 @@
         const animeItems = document.querySelectorAll('.anime-item');
         animeItems.forEach(item => {
             item.addEventListener('click', () => {
+                animeItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('open');
+                        otherItem.querySelector('.anime-details').style.display = 'none';
+                    }
+                });
+                item.classList.toggle('open');
                 const details = item.querySelector('.anime-details');
                 details.style.display = details.style.display === 'block' ? 'none' : 'block';
             });
